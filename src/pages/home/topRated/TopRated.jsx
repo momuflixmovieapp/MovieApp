@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper'
 import SwitchTabs from '../../../components/swithTabs/SwitchTabs'
-import useFetch from '../../../hooks/useFetch'
+import UseFetch from '../../../hooks/UseFetch'
 import Carousel from '../../../components/carousel/Carousel'
 
 const TopRated = () => {
   const [endpoint,setEndPoint]=useState("movie");
-  const {data,loading}=useFetch(`/${endpoint}/top_rated`)
+  const {data,loading}=UseFetch(`/${endpoint}/top_rated`)
   
   console.log(data);
   

@@ -3,7 +3,7 @@ import './App.scss'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import {useSelector,useDispatch} from 'react-redux'
 import {getApiConfiguration,getGenres} from './store/homeSlice'
-import {fetchDataFromApi} from './utils/api'
+import {FetchDataFromApi} from './utils/Api'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
@@ -20,7 +20,7 @@ function App() {
 
   const fetchApiConfiguration=()=>{
 
-    fetchDataFromApi('/configuration').then((res)=>{
+    FetchDataFromApi('/configuration').then((res)=>{
       console.log(res);
 
       const url={
@@ -46,7 +46,7 @@ function App() {
 
 
    endPoints.forEach((url)=>{
-    promises.push(fetchDataFromApi(`/genre/${url}/list`))
+    promises.push(FetchDataFromApi(`/genre/${url}/list`))
    })
 
    const data=await Promise.all(promises);

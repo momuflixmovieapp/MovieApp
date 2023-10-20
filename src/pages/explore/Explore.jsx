@@ -6,7 +6,7 @@ import Select from "react-select";
 import "./style.scss";
 
 import useFetch from "../../hooks/useFetch";
-import { fetchDataFromApi } from "../../utils/api";
+import { FetchDataFromApi } from "../../utils/Api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
@@ -38,7 +38,7 @@ const Explore = () => {
 
     const fetchInitialData = () => {
         setLoading(true);
-        fetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
+        FetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
             setData(res);
             setPageNum((prev) => prev + 1);
             setLoading(false);

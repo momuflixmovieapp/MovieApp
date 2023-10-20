@@ -4,7 +4,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 
 import "./style.scss";
 
-import { fetchDataFromApi } from "../../utils/api";
+import { FetchDataFromApi } from "../../utils/Api";
 import ContentWrapper from "../../components/contentWrapper/ContentWrapper";
 import MovieCard from "../../components/movieCard/MovieCard";
 import Spinner from "../../components/spinner/Spinner";
@@ -18,7 +18,7 @@ const SearchResult = () => {
 
     const fetchInitialData = () => {
         setLoading(true);
-        fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
+        FetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
             (res) => {
                 setData(res);
                 setPageNum((prev) => prev + 1);
@@ -28,7 +28,7 @@ const SearchResult = () => {
     };
 
     const fetchNextPageData = () => {
-        fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
+        FetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
             (res) => {
                 if (data?.results) {
                     setData({
