@@ -19,6 +19,7 @@ export  const FetchDataFromApi=async(url,params)=>{
         return data;
 
     }catch(error){
+        console.log("Error ocuured while fetching data from Api.")
          console.log(error);
          return error;
     }
